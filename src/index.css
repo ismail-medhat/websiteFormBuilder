@@ -1,7 +1,7 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -28,88 +28,38 @@ body {
   overflow: hidden;
 }
 
-.content {
+.form-builder {
   display: flex;
-  flex: 1;
 }
 
 .sidebar {
-  width: 250px;
-  border-right: 1px solid black;
+  flex-basis: 20%;
+  background-color: #f0f0f0;
+  padding:  20px 5px;
 }
 
-.sidebar-field {
-  all: unset;
-  display: flex;
+.option {
+  padding: 10px;
+  background-color: #e0e0e0;
+  margin-bottom: 10px;
+  cursor: move;
+}
+
+.drop-zone {
+  flex-basis: 80%;
+  background-color: #fff;
+  padding: 20px;
+  /* margin: 100px auto; */
   align-items: center;
   justify-content: center;
-  height: 50px;
-  width: 250px;
-  border-bottom: 1px solid black;
-  cursor: pointer;
-  user-select: none;
-}
-
-.sidebar-field.overlay {
-  background: black;
-  color: white;
-}
-
-.canvas {
-  flex: 1;
-  border: 1px solid black;
-  margin: 50px;
-  border-radius: 5px;
-  padding: 10px;
   display: flex;
-  flex-direction: column;
-  max-height: 100%;
-  overflow-y: auto;
-}
-
-.canvas-field {
-  padding: 15px;
-}
-
-.canvas-field.overlay {
-  opacity: 0.5;
-}
-
-.canvas-field > * {
-  width: 100%;
-  pointer-events: none;
-}
-
-.spacer {
-  background: black;
-  width: 100%;
-  opacity: 0.25;
-  height: 100px;
-}
-
-.form-editor-container {
-  height: 600px; /* Adjust the height as needed */
-}
-.form-editor-container > *:nth-child(2) {
-  display: none;
+  height: 600px;
 }
 
 .row-container {
   display: flex;
   align-items: center;
   margin: 10px;
-}
-
-.text {
-  margin: 0px 10px ;
-}
-
-
-/* Sidebar Styles */
-.sidebar {
-  width: 250px;
-  background-color: #f1f1f1;
-  padding: 20px;
 }
 
 .sidebar ul {
@@ -127,38 +77,68 @@ body {
   text-decoration: none;
 }
 
-
-/* Container Styles */
-.content {
-  margin: auto 250px ; /* Width of the sidebar */
-  padding: 20px;
-}
-
-.input-group {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+.form-row {
+  display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 10px ;
 }
 
-.input-label {
-  margin-right: 10px;
-}
-
-.input-field {
-  flex-grow: 1;
+.form-input {
+  width: 60%;
   padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+}
+.form-label {
+  width: 15%;
+}
+
+.btn-group {
+  width: 20%;
+}
+
+.edit-icon {
+  background: rgb(0, 153, 255);
+  cursor: pointer;
+  padding: 5px;
+  margin-left: 10px;
+  border-radius: 5px;
 }
 
 .delete-icon {
-  background: none;
-  border: none;
+  background: red;
   cursor: pointer;
-  padding: 0;
+  padding: 5px;
   margin-left: 10px;
+  border-radius: 5px;
 }
 
+.copy-icon {
+  background: green;
+  cursor: pointer;
+  padding: 5px;
+  margin-left: 10px;
+  border-radius: 5px;
+}
 
+.down-icon {
+  background :orange;
+  cursor: pointer;
+  padding: 5px;
+  margin-left: 10px;
+  border-radius: 5px;
+}
 
+.up-icon {
+  background :orchid;
+  cursor: pointer;
+  padding: 5px;
+  margin-left: 10px;
+  border-radius: 5px;
+}
 
-
+.drag-group{
+  display: flex;
+}

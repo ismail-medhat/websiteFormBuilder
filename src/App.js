@@ -8,10 +8,10 @@ import { BsUpload } from "react-icons/bs";
 import { FaRegDotCircle } from "react-icons/fa";
 import { AiOutlineCheckSquare } from "react-icons/ai";
 import { MdCheckCircle } from "react-icons/md";
-import { FaCalendar } from 'react-icons/fa';
-import { BsList } from 'react-icons/bs';
+import { FaCalendar } from "react-icons/fa";
+import { BsList } from "react-icons/bs";
 
-
+import { FormObjects } from "./components/FormObjects";
 
 function App() {
   const generateRandomId = () => {
@@ -23,96 +23,24 @@ function App() {
   return (
     <DndProvider backend={HTML5Backend}>
       <div className="form-builder">
-        <div className="sidebar">
-          <div className="drag-group">
-            <DraggableInput
-              tagName="input"
-              InputType="text"
-              label="Text Input"
-              id={generateRandomId()}
-              icon={<FaKeyboard size={"30px"} />}
-            />
-            <DraggableInput
-              tagName="input"
-              InputType="number"
-              label="Number Input"
-              id={generateRandomId()}
-              icon={<FaKeyboard size={"30px"} />}
-            />
-          </div>
-
-          <div className="drag-group">
-            <DraggableInput
-              tagName="input"
-              InputType="email"
-              label="Email Input"
-              id={generateRandomId()}
-              icon={<FaKeyboard size={"30px"} />}
-            />
-            <DraggableInput
-              tagName="input"
-              InputType="password"
-              label="Password Input"
-              id={generateRandomId()}
-              icon={<FaKeyboard size={"30px"} />}
-            />
-          </div>
-
-          <div className="drag-group">
-            <DraggableInput
-              tagName="input"
-              InputType="checkbox"
-              label="checkbox Input"
-              id={generateRandomId()}
-              icon={<AiOutlineCheckSquare size={"30px"} />}
-            />
-            <DraggableInput
-              tagName="button"
-              InputType="radio"
-              label="radio input"
-              id={generateRandomId()}
-              icon={<FaRegDotCircle size={"30px"} />}
-            />
-          </div>
-
-          <div className="drag-group">
-            <DraggableInput
-              tagName="input"
-              InputType="date"
-              label="date Input"
-              id={generateRandomId()}
-              icon={<FaCalendar size={"30px"} />}
-            />
-            <DraggableInput
-              tagName="select"
-              InputType="select"
-              label="select option"
-              selectOption={["HTML", "CSS", "JAVASCRIPT"]}
-              id={generateRandomId()}
-              icon={<BsList size={"30px"} />}
-            />
-          </div>
-
-          <div className="drag-group">
-            <DraggableInput
-              tagName="input"
-              InputType="file"
-              label="file upload Input"
-              id={generateRandomId()}
-              icon={<BsUpload size={"30px"} />}
-            />
-            <DraggableInput
-              tagName="button"
-              InputType="submit"
-              label="submit"
-              id={generateRandomId()}
-              icon={<MdCheckCircle size={"30px"} />}
-            />
-          </div>
-        </div>
-
         <div className="drop-zone">
           <DropZone />
+        </div>
+
+        <div className="sidebar">
+          <div className="drag-group">
+            {FormObjects?.map((obj) => {
+              return (
+                <DraggableInput
+                  schema={obj.data}
+                  label={obj?.title}
+                  id={obj.id}
+                  icon={obj?.icon}
+                  key={obj.id}
+                />
+              );
+            })}
+          </div>
         </div>
       </div>
     </DndProvider>
